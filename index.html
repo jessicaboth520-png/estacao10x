@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Estação 10X | Imersão prática para a prova do Revalida</title>
+  <title>Estação 10X | Imersão Presencial para a Prova Prática do Revalida</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -20,8 +20,26 @@
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .animate-float { animation: float 3s ease-in-out infinite; }
     
-    /* Destaque sem linha */
+    /* Destaques de texto */
     .highlight-text {
+      background: linear-gradient(135deg, #00D9FF, #FF0080);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+    }
+    .highlight-text::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #00D9FF, #FF0080);
+      border-radius: 3px;
+    }
+    .highlight-text-no-line {
       background: linear-gradient(135deg, #00D9FF, #FF0080);
       background-clip: text;
       -webkit-background-clip: text;
@@ -29,6 +47,7 @@
       display: inline-block;
     }
     
+    /* Gradientes e cores */
     .gradient-hero { background: linear-gradient(135deg, #001021 0%, #002b30 50%, #001a15 100%); }
     .btn-primary { background: linear-gradient(90deg, #0a5c2e, #15c659); color: white; transition: all 0.3s; }
     .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(21,198,89,0.4); }
@@ -43,11 +62,49 @@
     }
     .countdown-bar { background: linear-gradient(90deg, #001021, #002b30); border-bottom: none; }
     
-    /* Modal do vídeo */
+    /* Modal */
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
-    .modal-content { background: #0D1117; max-width: 800px; width: 90%; border-radius: 1.5rem; padding: 1rem; border: 1px solid #0fa84a; position: relative; }
-    .close-modal { position: absolute; top: 10px; right: 15px; font-size: 2rem; cursor: pointer; color: #0fa84a; transition: 0.2s; z-index: 10; background: rgba(0,0,0,0.5); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
-    .close-modal:hover { color: #FF0080; background: rgba(0,0,0,0.8); }
+    .modal-content { background: #0D1117; max-width: 500px; width: 90%; border-radius: 1.5rem; padding: 2rem; max-height: 80vh; overflow-y: auto; border: 1px solid #0fa84a; }
+    .modal-content h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: #0fa84a; }
+    .modal-content ul { list-style: disc; padding-left: 1.5rem; color: #cbd5e1; }
+    .modal-content li { margin-bottom: 0.5rem; }
+    .close-modal { float: right; font-size: 1.8rem; cursor: pointer; color: #0fa84a; transition: 0.2s; }
+    .close-modal:hover { color: #FF0080; }
+    
+    /* Modal de vídeo específico */
+    .video-modal-content {
+      max-width: 50%;
+      width: auto;
+      padding: 0.5rem;
+      background: transparent;
+      border: none;
+      position: relative;
+    }
+    .video-modal-content video {
+      width: 100%;
+      border-radius: 1rem;
+      outline: none;
+    }
+    .close-video {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #0fa84a;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      z-index: 1001;
+    }
+    @media (max-width: 767px) {
+      .video-modal-content { max-width: 90%; }
+    }
     
     /* Cabeçalho fixo */
     .sticky-header {
@@ -65,43 +122,117 @@
     .logo { height: 1.75rem; transition: height 0.3s ease; }
     @media (min-width: 768px) { .logo { height: 2.5rem; } }
     
+    .stats-card-red { transition: box-shadow 0.3s ease; }
+    .stats-card-red:hover { box-shadow: 0 0 20px rgba(220, 38, 38, 0.3); }
+    .stats-card-cyan { transition: box-shadow 0.3s ease; }
+    .stats-card-cyan:hover { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+    
+    .icon-bg {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .hero-image-wrapper { position: relative; display: inline-block; width: 100%; }
+    .hero-image-wrapper img { width: 100%; height: auto; display: block; border-radius: 1rem; }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+      border-radius: 1rem;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .hero-badge-shadow {
+      position: absolute;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      background: linear-gradient(90deg, #0891b2, #db2777);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      font-weight: bold;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+      z-index: 10;
+      font-size: 0.875rem;
+      white-space: nowrap;
+    }
+    @media (max-width: 640px) {
+      .hero-badge-shadow { font-size: 0.7rem; padding: 0.3rem 0.6rem; bottom: -0.3rem; right: -0.3rem; }
+    }
+    
     .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
     
-    .plan-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .plan-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.5); }
+    .plan-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .plan-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.5);
+    }
     
-    /* Ajustes mobile (seguindo padrão da landing original) */
+    /* Ajustes mobile (TODOS OS NOVOS TAMANHOS) */
     @media (max-width: 767px) {
       .countdown-text { font-size: 0.75rem !important; }
       .hero-title { font-size: 1.775rem !important; line-height: 1.3 !important; }
       .hero-description { font-size: 14px !important; line-height: 1.4 !important; }
+      
       .hero-list-item { font-size: 12px !important; }
+      
+      .formula-title { font-size: 25px !important; }
+      
+      .stats-heading-mobile { font-size: 17px !important; }
+      
+      .diff-title-mobile { font-size: 14px !important; }
+      
+      .method-main-title { font-size: 23px !important; }
+      
       .section-title-mobile { font-size: 24px !important; }
+      
+      .guarantee-title-mobile { font-size: 21px !important; }
+      
+      .carousel-card-title { font-size: 15px !important; }
+      .carousel-card-sub { font-size: 12px !important; }
+      
+      .about-text { font-size: 14px !important; }
+      
+      .badge-exclusive { font-size: 0.7rem !important; }
       .reality-title { font-size: 26px !important; }
       .stats-label-mobile { font-size: 14px !important; }
       .stats-percent-mobile { font-size: 20px !important; }
+      .testa-title { font-size: 15px !important; }
+      .testa-text-small { font-size: 12px !important; }
+      .enemy-heading-mobile { font-size: 17px !important; }
+      .enemy-text-mobile { font-size: 12px !important; }
       .diff-heading-mobile { font-size: 20px !important; }
       .diff-desc-text { font-size: 13px !important; }
+      .method-text-mobile { font-size: 13px !important; }
+      .method-icons-mobile { font-size: 12px !important; }
+      .method-bridge-text { font-size: 0.85rem !important; }
+      .method-card-number { font-size: 1.6rem !important; }
+      .method-card-label { font-size: 0.75rem !important; }
       .bonus-title { font-size: 1.75rem !important; }
+      .bonus-exclusive-text { font-size: 0.75rem !important; }
       .bonus-card-title { font-size: 1.3rem !important; }
       .bonus-card-text { font-size: 0.75rem !important; }
-      .guarantee-title-mobile { font-size: 21px !important; }
+      .bonus-price { font-size: 0.9rem !important; }
+      .bonus-total-mobile { font-size: 16px !important; }
+      .plans-title-mobile { font-size: 1.875rem !important; }
+      .plans-subtitle-mobile { font-size: 0.875rem !important; }
       .guarantee-text-mobile { font-size: 0.75rem !important; }
+      .guarantee-badges-mobile { font-size: 0.65rem !important; }
       .faq-summary-mobile { font-size: 0.9rem !important; }
       .faq-content-mobile { font-size: 0.8rem !important; }
-      .objetion-title { font-size: 16px !important; }
-      .objetion-text { font-size: 12px !important; }
-      .about-text { font-size: 14px !important; }
-    }
-    
-    .video-thumbnail {
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .video-thumbnail:hover {
-      transform: scale(1.01);
-      box-shadow: 0 20px 25px -12px rgba(0,217,255,0.3);
+      .carousel-subtitle { font-size: 0.8rem !important; }
+      .benefits-subtitle { font-size: 0.8rem !important; }
     }
   </style>
 </head>
@@ -112,296 +243,341 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
     <div class="flex justify-between items-center">
       <img src="https://raw.githubusercontent.com/jessicaboth520-png/landingformula/main/Captura_de_tela_de_2026-04-07_03-52-17-removebg-preview.png" alt="Fórmula Revalida" class="logo object-contain" onerror="this.src='https://placehold.co/160x50/15c659/white?text=Fórmula+Revalida'">
-      <a href="https://www.instagram.com/formularevalida" target="_blank" class="bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md"><i class="fab fa-instagram"></i> @formularevalida</a>
+      <a href="https://www.instagram.com/formularevalida" target="_blank" class="bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1 shadow-md">
+        <i class="fab fa-instagram"></i> @formularevalida
+      </a>
     </div>
   </div>
 </header>
 
-<!-- CONTAGEM REGRESSIVA PARA O EVENTO -->
+<!-- CONTAGEM REGRESSIVA -->
 <div class="countdown-bar text-white py-2 text-center font-semibold relative z-30 shadow-md countdown-text">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-center gap-3 flex-wrap">
-    <span>📍 Curitiba • 2 e 3 de maio de 2026 • <strong id="countdown-days" class="text-[#22d3ee] text-base mx-1">--</strong> dias para a imersão</span>
+    <span>⏳ Imersão em Curitiba • 2 e 3 de maio • Faltam <strong id="countdown-days" class="text-[#22d3ee] text-base mx-1">--</strong> dias</span>
     <i class="fas fa-bolt text-[#22d3ee]"></i>
   </div>
 </div>
 
-<!-- HERO COM IMAGEM PRINCIPAL -->
+<!-- HERO SECTION -->
 <section class="relative gradient-hero text-white overflow-hidden pt-8 pb-12 md:pt-16 md:pb-20">
   <div class="absolute inset-0 bg-black/20"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="space-y-5 animate-fadeInUp">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 font-medium border border-[#22d3ee]/30">
-          <i class="fas fa-fire text-[#FF0080] text-xs"></i>
-          <span>2º lote aberto • Últimas vagas</span>
+        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 font-medium border border-[#22d3ee]/30 badge-exclusive">
+          <i class="fas fa-map-pin text-[#22d3ee] text-xs"></i>
+          <span>Curitiba • 2 e 3 de maio • 2º lote aberto</span>
         </div>
-        <h1 class="font-extrabold leading-tight hero-title text-3xl md:text-5xl lg:text-6xl">ESTAÇÃO <span class="highlight-text">10X</span></h1>
-        <p class="text-gray-300 hero-description text-base md:text-lg">A imersão que vale por <strong class="text-white">10 meses de treino</strong>. 10x mais pressão na simulação. Segurança na aprovação.</p>
+        <h1 class="font-extrabold leading-tight hero-title text-3xl md:text-5xl lg:text-6xl">
+          ESTAÇÃO <span class="highlight-text">10X</span>
+        </h1>
+        <p class="text-gray-300 hero-description text-base md:text-lg">
+          A imersão que <strong class="text-white">vale por 10 meses de treino</strong>. 10x mais pressão na simulação. Segurança na aprovação.
+        </p>
         <div class="space-y-2">
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Treine com atores e cronômetro real</span></div>
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Correção item por item com checklist INEP</span></div>
-          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Controle emocional + estratégia de alta performance</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Simule a prova prática antes do dia real</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Treino com atores, cronômetro e checklist padrão INEP</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-check-circle text-[#22d3ee] text-base"></i><span class="hero-list-item text-sm md:text-base">Método DEP + Fórmula Revalida (82% de aprovação)</span></div>
         </div>
         <div class="pt-2">
-          <a href="#garantir-vaga" class="inline-flex items-center gap-2 btn-primary text-white font-bold text-base md:text-lg px-6 py-3 rounded-xl transition transform hover:scale-105 shadow-xl">GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i></a>
-          <div class="flex flex-wrap justify-start gap-4 mt-4 text-xs md:text-sm text-gray-300">
-            <span class="flex items-center gap-1"><i class="fas fa-shield-alt text-[#22d3ee]"></i> 7 dias de garantia</span>
-            <span class="flex items-center gap-1"><i class="fas fa-map-marker-alt text-[#0fa84a]"></i> Curitiba - PR</span>
-            <span class="flex items-center gap-1"><i class="fas fa-clock text-[#FF0080]"></i> 2 e 3 de maio</span>
+          <a href="#inscricao" class="inline-flex items-center gap-2 btn-primary text-white font-bold text-base md:text-lg px-6 py-3 rounded-xl transition transform hover:scale-105 shadow-xl" id="btn-comecar">
+            QUERO GARANTIR MINHA VAGA <i class="fas fa-arrow-right"></i>
+          </a>
+          <div class="flex flex-wrap justify-center gap-4 mt-4 text-xs md:text-sm text-gray-300">
+            <span class="flex items-center gap-1"><i class="fas fa-users text-[#22d3ee]"></i> Vagas limitadas</span>
+            <span class="flex items-center gap-1"><i class="fas fa-map-pin text-[#0fa84a]"></i> Presencial em Curitiba</span>
+            <span class="flex items-center gap-1"><i class="fas fa-calendar-check text-[#FF0080]"></i> 2 dias intensivos</span>
           </div>
         </div>
       </div>
       <div class="relative animate-fadeInUp" style="animation-delay: 0.2s;">
         <div class="hero-image-wrapper">
-          <img src="https://raw.githubusercontent.com/jessicaboth520-png/landingformula/main/%F0%9F%94%A5Pela%20primeira%20vez%20em%20Curitiba-a%20uni%C3%A3o%20do%20%E2%9C%85F%C3%B3rmula%20Revalida%20(com%2082%20de%20aprova%C3%A7%C3%A3o%20na%20Mentoria%20I.png" alt="Estação 10X - Imersão prática Revalida" class="w-full rounded-2xl object-cover shadow-2xl border border-[#22d3ee]/30" loading="lazy" onerror="this.src='https://placehold.co/600x400/0A0F1A/00D9FF?text=Esta%C3%A7%C3%A3o+10X'">
-          <div class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-sm text-white px-3 py-1 rounded-lg text-xs font-bold">🔥 82% de aprovação na Mentoria Individual</div>
+          <!-- IMAGEM PRINCIPAL DO EVENTO (GITHUB) -->
+          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/%F0%9F%94%A5Pela%20primeira%20vez%20em%20Curitiba-a%20uni%C3%A3o%20do%20%E2%9C%85F%C3%B3rmula%20Revalida%20(com%2082%20de%20aprova%C3%A7%C3%A3o%20na%20Mentoria%20I.png" alt="Estação 10X - Imersão Revalida" class="w-full rounded-2xl object-cover shadow-2xl" loading="lazy">
+          <div class="hero-overlay"></div>
+          <div class="hero-badge-shadow">
+            <i class="fas fa-fire mr-1"></i> 82% de aprovação na Mentoria
+          </div>
+        </div>
+        <!-- Botão para assistir vídeo -->
+        <div class="mt-4 flex justify-center">
+          <button onclick="openVideoModal()" class="bg-black/40 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm flex items-center gap-2 border border-white/20 hover:bg-black/60 transition">
+            <i class="fas fa-play-circle text-[#22d3ee]"></i> Assistir como funciona a imersão
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VÍDEO DEMONSTRATIVO (CLICAR E RODAR) -->
-<section class="py-12 bg-[#0D1117] scroll-reveal">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Veja como funciona a imersão</h2>
-    <div class="relative max-w-3xl mx-auto video-thumbnail rounded-2xl overflow-hidden shadow-2xl border border-[#0fa84a]/40" onclick="openVideoModal()">
-      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&auto=format" alt="Thumb do vídeo" class="w-full object-cover">
-      <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-        <div class="bg-gradient-to-r from-[#00D9FF] to-[#FF0080] rounded-full p-4 shadow-2xl">
-          <i class="fas fa-play text-white text-3xl ml-1"></i>
-        </div>
-      </div>
-      <div class="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">Clique para assistir</div>
-    </div>
-    <p class="text-gray-400 text-sm mt-3">Na imersão prática, você se coloca no ambiente da prova do Revalida antes dela acontecer.</p>
-  </div>
-</section>
-
-<!-- REALIDADE: O DESAFIO DA PROVA PRÁTICA -->
-<section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-10">
-      <h2 class="font-bold text-white reality-title text-2xl md:text-3xl lg:text-4xl">A <span class="text-red-500">realidade</span> que poucos encaram</h2>
-      <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mt-2">Conteúdo você já tem. O que falta é treino com pressão real.</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-10 items-center">
-      <div class="space-y-5">
-        <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-red-500">
-          <h3 class="text-xl font-bold mb-3">O erro mais comum na 2ª fase</h3>
-          <p class="text-gray-300">Candidatos reprovam não por falta de conhecimento, mas por <strong class="text-red-400">não saberem executar sob pressão</strong>. Travam no tempo, esquecem condutas, perdem pontos em documentos.</p>
-        </div>
-        <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-cyan-500">
-          <h3 class="text-xl font-bold mb-3">Treinar no automático não funciona</h3>
-          <p class="text-gray-300">Fazer dezenas de simulações sem feedback estruturado só reforça erros. Você precisa de <strong class="text-cyan-400">correção com checklist INEP</strong> e ambiente de alta pressão.</p>
-        </div>
-      </div>
-      <div class="relative">
-        <img src="https://images.unsplash.com/photo-1581595220893-b0739db3b8a6?w=600&auto=format" alt="Simulação prática" class="rounded-2xl shadow-xl border border-cyan-500/30 w-full">
-        <div class="absolute -bottom-3 -right-3 bg-gradient-to-r from-cyan-600 to-pink-600 text-white text-xs font-bold px-3 py-1 rounded-full">+70% travam no primeiro atendimento</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OFERTA ESTAÇÃO 10X -->
+<!-- O SONHO & REALIDADE -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <!-- O SONHO -->
+      <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-[#0fa84a]">
+        <h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-star text-yellow-400"></i> 🔥 O SONHO</h3>
+        <p class="text-gray-300 mb-3">Você quer abrir a porta da estação no dia da prova prática e sentir que <strong class="text-white">já esteve ali antes</strong>.</p>
+        <p class="text-gray-300 mb-3">Quer que o tempo cronometrado não te paralise. Que o avaliador não te intimide. Que sua mão não trema na prescrição, sua voz não falhe na anamnese.</p>
+        <p class="text-gray-300">Você quer <strong class="text-[#0fa84a]">controle, clareza e confiança</strong>. E acima de tudo, ouvir o “aprovado”. Esse destino começa em Curitiba, 2 e 3 de maio.</p>
+      </div>
+      <!-- A REALIDADE -->
+      <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-red-500">
+        <h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-exclamation-triangle text-red-500"></i> ⚠️ A REALIDADE</h3>
+        <p class="text-gray-300 mb-3">A maioria dos candidatos <strong class="text-red-400">erra não por falta de conteúdo</strong> – erra por não entender como o INEP pensa.</p>
+        <p class="text-gray-300 mb-3">Treinam estações no automático, sem pressão, sem cronômetro, sem ator. No dia da prova, travam.</p>
+        <p class="text-gray-300">Você não precisa treinar mais. Precisa <strong class="text-white">treinar certo</strong> – simular a prova como ela é.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- A OFERTA: ESTAÇÃO 10X -->
+<section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-4">⚡ ESTAÇÃO 10X</h2>
-    <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-8">Pela primeira vez em Curitiba, a união de <strong class="text-[#00D9FF]">três métodos validados</strong> que já aprovaram centenas de médicos.</p>
-    <div class="grid md:grid-cols-3 gap-6 mb-10">
-      <div class="bg-[#131A22] p-5 rounded-xl border border-[#0fa84a]/30"><i class="fas fa-chart-line text-3xl text-[#0fa84a] mb-2"></i><h3 class="font-bold">Fórmula Revalida</h3><p class="text-sm text-gray-400">82% de aprovação na Mentoria Individual</p></div>
-      <div class="bg-[#131A22] p-5 rounded-xl border border-[#00D9FF]/30"><i class="fas fa-brain text-3xl text-[#00D9FF] mb-2"></i><h3 class="font-bold">Dra. Victória Haubert</h3><p class="text-sm text-gray-400">Criadora do Método DEP, 4+ anos em curso prático</p></div>
-      <div class="bg-[#131A22] p-5 rounded-xl border border-[#FF0080]/30"><i class="fas fa-bolt text-3xl text-[#FF0080] mb-2"></i><h3 class="font-bold">Dra. Jéssica Beck</h3><p class="text-sm text-gray-400">Especialista em treinamento de alta performance</p></div>
+    <h2 class="font-bold text-white mb-4 formula-title text-3xl md:text-4xl lg:text-5xl">
+      🎯 A OFERTA: <span class="text-[#0fa84a]">ESTAÇÃO 10X</span>
+    </h2>
+    <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12">
+      Pela primeira vez em Curitiba, a união de três métodos validados.
+    </p>
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30">
+        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <h3 class="font-bold text-lg">Fórmula Revalida</h3>
+        <p class="text-gray-400 text-sm">82% de aprovação na Mentoria Individual</p>
+      </div>
+      <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30">
+        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <h3 class="font-bold text-lg">Dra. Victória Haubert</h3>
+        <p class="text-gray-400 text-sm">Criadora do Método DEP, +4 anos em curso prático presencial</p>
+      </div>
+      <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30">
+        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <h3 class="font-bold text-lg">Dra. Jéssica Beck</h3>
+        <p class="text-gray-400 text-sm">Especialista em treinamento de alta performance para provas práticas</p>
+      </div>
     </div>
-    <div class="bg-gradient-to-r from-cyan-500/10 to-pink-500/10 p-8 rounded-2xl border border-cyan-400/30">
-      <p class="text-xl md:text-2xl font-semibold">Você não precisa treinar mais. Você precisa <span class="text-[#0fa84a]">treinar certo</span>.</p>
-    </div>
+    <p class="text-white text-lg mb-8">Três especialistas. Dois métodos validados. Uma missão: <strong class="text-[#0fa84a]">sua aprovação na prova prática.</strong></p>
   </div>
 </section>
 
 <!-- O QUE VOCÊ RECEBE EM 2 DIAS -->
-<section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
+<section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white text-center mb-4">📦 O que você recebe em 2 dias</h2>
-    <p class="text-gray-400 text-center mb-10">Imersão presencial de alta performance com execução no padrão INEP</p>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-user-md text-2xl text-[#00D9FF]"></i><div><h3 class="font-bold">30 estações individuais</h3><p class="text-sm text-gray-400">Cada uma com tempo cronometrado e correção individual</p></div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-users text-2xl text-[#0fa84a]"></i><div><h3 class="font-bold">10 estações em grupo</h3><p class="text-sm text-gray-400">Treino colaborativo com pressão real</p></div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-syringe text-2xl text-[#FF0080]"></i><div><h3 class="font-bold">Procedimentos práticos</h3><p class="text-sm text-gray-400">Os que mais caem na prova</p></div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-file-signature text-2xl text-[#00D9FF]"></i><div><h3 class="font-bold">Prescrição e documentos</h3><p class="text-sm text-gray-400">Padrão INEP que poucos dominam</p></div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-theater-masks text-2xl text-[#0fa84a]"></i><div><h3 class="font-bold">Atores simulando pacientes</h3><p class="text-sm text-gray-400">Para você sentir a pressão de verdade</p></div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex items-start gap-3"><i class="fas fa-chalkboard text-2xl text-[#FF0080]"></i><div><h3 class="font-bold">Correção individual estratégica</h3><p class="text-sm text-gray-400">Item por item, checklist que a banca usa</p></div></div>
+    <div class="text-center mb-10">
+      <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white">📦 O que você recebe em 2 dias</h2>
     </div>
-    <div class="mt-10 text-center bg-cyan-900/20 p-4 rounded-xl"><i class="fas fa-brain text-cyan-400 mr-2"></i><span class="font-semibold">+ Treino técnico + controle emocional</span> – porque o psicológico aprova tanto quanto o conhecimento.</div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-user-check text-[#00D9FF] text-xl mt-1"></i><div><strong class="text-white">30 estações individuais</strong><p class="text-gray-400 text-sm">cronometradas e correção individual</p></div></div>
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-users text-[#0fa84a] text-xl mt-1"></i><div><strong class="text-white">10 estações em grupo</strong><p class="text-gray-400 text-sm">treino colaborativo com pressão real</p></div></div>
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-syringe text-[#FF0080] text-xl mt-1"></i><div><strong class="text-white">Procedimentos práticos</strong><p class="text-gray-400 text-sm">os que mais caem na prova</p></div></div>
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-file-prescription text-[#00D9FF] text-xl mt-1"></i><div><strong class="text-white">Prescrição e documentos</strong><p class="text-gray-400 text-sm">padrão INEP que poucos dominam</p></div></div>
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-theater-masks text-[#0fa84a] text-xl mt-1"></i><div><strong class="text-white">Atores simulando pacientes</strong><p class="text-gray-400 text-sm">para sentir a pressão real</p></div></div>
+      <div class="bg-[#131A22] p-5 rounded-xl flex gap-3 items-start"><i class="fas fa-clipboard-check text-[#FF0080] text-xl mt-1"></i><div><strong class="text-white">Correção individual estratégica</strong><p class="text-gray-400 text-sm">item por item, checklist da banca</p></div></div>
+    </div>
+    <p class="text-center text-gray-300 mt-8">Você treina, recebe feedback, ajusta, repete. Até que a execução se torne automática.</p>
   </div>
 </section>
 
 <!-- BÔNUS EXCLUSIVOS -->
-<section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
-  <div class="max-w-6xl mx-auto px-4 text-center">
-    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-2"><i class="fas fa-gift text-[#FF0080] mr-2"></i> Bônus exclusivos</h2>
-    <p class="text-gray-400 mb-8">Apenas para os primeiros inscritos (Lote 2)</p>
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      <div class="bg-[#131A22] p-6 rounded-xl border-t-4 border-yellow-500"><i class="fas fa-clipboard-list text-3xl text-yellow-500 mb-2"></i><h3 class="bonus-card-title text-xl font-bold">Checklist Padrão INEP</h3><p class="bonus-card-text text-gray-400">O mesmo que a banca usa para corrigir – valor R$ 497</p><span class="text-green-400 font-bold">GRÁTIS</span></div>
-      <div class="bg-[#131A22] p-6 rounded-xl border-t-4 border-yellow-500"><i class="fas fa-heartbeat text-3xl text-yellow-500 mb-2"></i><h3 class="bonus-card-title text-xl font-bold">Sessão controle emocional</h3><p class="bonus-card-text text-gray-400">Com psicóloga especializada em performance – R$ 397</p><span class="text-green-400 font-bold">GRÁTIS</span></div>
-      <div class="bg-[#131A22] p-6 rounded-xl border-t-4 border-yellow-500"><i class="fab fa-whatsapp text-3xl text-yellow-500 mb-2"></i><h3 class="bonus-card-title text-xl font-bold">Grupo VIP pós-imersão</h3><p class="bonus-card-text text-gray-400">Professores para dúvidas até a prova – R$ 297</p><span class="text-green-400 font-bold">GRÁTIS</span></div>
-      <div class="bg-[#131A22] p-6 rounded-xl border-t-4 border-yellow-500"><i class="fas fa-trophy text-3xl text-yellow-500 mb-2"></i><h3 class="bonus-card-title text-xl font-bold">Sorteio exclusivo</h3><p class="bonus-card-text text-gray-400">Entre os 5 primeiros inscritos: mentoria individual de 1 hora</p><span class="text-green-400 font-bold">EXCLUSIVO</span></div>
-    </div>
-    <p class="mt-6 text-xl font-bold">Total em bônus: <span class="text-green-400 line-through">R$ 1.191</span> <span class="text-white">– você leva de graça!</span></p>
-  </div>
-</section>
-
-<!-- POR QUE ESTA OFERTA É DIFERENTE? (OBJEÇÕES) -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
-  <div class="max-w-5xl mx-auto px-4">
-    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white text-center mb-8">Por que o Estação 10X é diferente?</h2>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-2"><i class="fas fa-gift text-[#FF0080] mr-2"></i> Bônus exclusivos</h2>
+    <p class="bonus-exclusive-text text-gray-400 mb-8">Só para os primeiros inscritos</p>
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 card-hover">
+        <i class="fas fa-list-check text-4xl text-yellow-500 mb-3"></i>
+        <h3 class="bonus-card-title text-2xl font-bold mb-2">Checklist Padrão INEP</h3>
+        <p class="bonus-card-text text-gray-400 mb-3">O mesmo que a banca usa para corrigir.</p>
+        <div class="bonus-price"><s class="text-gray-500">R$ 497</s> <strong class="text-green-400 text-xl ml-2">GRÁTIS</strong></div>
+      </div>
+      <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 card-hover">
+        <i class="fas fa-brain text-4xl text-yellow-500 mb-3"></i>
+        <h3 class="bonus-card-title text-2xl font-bold mb-2">Sessão controle emocional</h3>
+        <p class="bonus-card-text text-gray-400 mb-3">Com psicóloga especializada em performance.</p>
+        <div class="bonus-price"><s class="text-gray-500">R$ 397</s> <strong class="text-green-400 text-xl ml-2">GRÁTIS</strong></div>
+      </div>
+      <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 card-hover">
+        <i class="fab fa-whatsapp text-4xl text-yellow-500 mb-3"></i>
+        <h3 class="bonus-card-title text-2xl font-bold mb-2">Grupo VIP pós-imersão</h3>
+        <p class="bonus-card-text text-gray-400 mb-3">Dúvidas com os professores até a prova.</p>
+        <div class="bonus-price"><s class="text-gray-500">R$ 297</s> <strong class="text-green-400 text-xl ml-2">GRÁTIS</strong></div>
+      </div>
+      <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 card-hover">
+        <i class="fas fa-trophy text-4xl text-yellow-500 mb-3"></i>
+        <h3 class="bonus-card-title text-2xl font-bold mb-2">Sorteio exclusivo</h3>
+        <p class="bonus-card-text text-gray-400 mb-3">Entre os 5 primeiros: mentoria individual 1h.</p>
+        <div class="bonus-price"><s class="text-gray-500">Valor imensurável</s> <strong class="text-green-400 text-xl ml-2">GRÁTIS</strong></div>
+      </div>
+    </div>
+    <p class="mt-8 text-xl font-bold bonus-total-mobile">Total em bônus: <span class="text-green-400">R$ 1.191</span> – você leva de graça!</p>
+  </div>
+</section>
+
+<!-- POR QUE É DIFERENTE? (TABELA DE OBJEÇÕES) -->
+<section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-white text-center mb-10">⚡ Por que esta oferta é diferente?</h2>
     <div class="space-y-4">
-      <div class="bg-[#131A22] p-5 rounded-xl flex flex-col md:flex-row gap-4 border-l-4 border-cyan-400"><div class="md:w-1/3 font-bold objetion-title text-cyan-300">“Já treinei sozinho, não sei se estou certo”</div><div class="md:w-2/3 objetion-text text-gray-300">Aqui você é corrigido item por item com o checklist da banca. Sabe exatamente onde errou e como melhorar.</div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex flex-col md:flex-row gap-4 border-l-4 border-pink-400"><div class="md:w-1/3 font-bold objetion-title text-pink-300">“Medo de travar na frente do avaliador”</div><div class="md:w-2/3 objetion-text text-gray-300">Treine com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</div></div>
-      <div class="bg-[#131A22] p-5 rounded-xl flex flex-col md:flex-row gap-4 border-l-4 border-green-400"><div class="md:w-1/3 font-bold objetion-title text-green-300">“E se eu não conseguir aplicar no dia?”</div><div class="md:w-2/3 objetion-text text-gray-300">Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</div></div>
+      <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800">
+        <p class="text-red-400 font-semibold">“Já treinei estações sozinho e não sei se estou fazendo certo”</p>
+        <p class="text-gray-300">→ Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</p>
+      </div>
+      <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800">
+        <p class="text-red-400 font-semibold">“Tenho medo de travar na frente do avaliador”</p>
+        <p class="text-gray-300">→ Você treina com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</p>
+      </div>
+      <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800">
+        <p class="text-red-400 font-semibold">“Não sei se vou conseguir aplicar tudo no dia”</p>
+        <p class="text-gray-300">→ Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- GARANTIA INCONDICIONAL -->
+<!-- PLANOS / INSCRIÇÃO -->
+<section id="inscricao" class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="font-bold text-white mb-2 text-3xl md:text-4xl plans-title-mobile">Garanta sua vaga no <span class="highlight-text-no-line">2º LOTE</span></h2>
+    <p class="text-gray-400 max-w-2xl mx-auto mb-4 plans-subtitle-mobile">Últimas vagas disponíveis. Quando acabar, acabou.</p>
+    
+    <!-- Cards de lote -->
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
+      <div class="bg-[#131A22] rounded-2xl p-6 border border-gray-700 opacity-60">
+        <h3 class="text-xl font-bold line-through">Lote Promocional</h3>
+        <div class="my-2"><span class="text-3xl font-bold text-gray-400 line-through">R$ 2.800</span></div>
+        <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">ESGOTADO</span>
+      </div>
+      <div class="bg-[#131A22] rounded-2xl p-6 border border-gray-700 opacity-60">
+        <h3 class="text-xl font-bold line-through">Lote 1</h3>
+        <div class="my-2"><span class="text-3xl font-bold text-gray-400 line-through">R$ 3.200</span></div>
+        <span class="bg-red-500 text-white px-2 py-1 rounded text-xs">ESGOTADO</span>
+      </div>
+      <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-2 border-[#0fa84a] relative plan-card">
+        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#0fa84a] to-[#00D9FF] text-white text-xs font-bold px-3 py-1 rounded-full">ÚLTIMO LOTE</div>
+        <h3 class="text-2xl font-bold mt-4">Lote 2</h3>
+        <div class="my-4"><span class="text-5xl font-bold price-grad">R$ 3.400</span></div>
+        <p class="text-green-400 text-sm mb-3">Vagas limitadas</p>
+        <a href="https://www.instagram.com/formularevalida" target="_blank" class="btn-secondary text-white py-3 rounded-xl font-bold transition mb-4 shadow-md text-center w-full block">Quero garantir minha vaga</a>
+        <p class="text-xs text-gray-400">ou envie "QUERO ENTRAR NA IMERSÃO" no direct</p>
+      </div>
+    </div>
+    <p class="mt-6 text-sm text-gray-400">📍 Curitiba • 2 e 3 de maio • Das 8h às 18h</p>
+  </div>
+</section>
+
+<!-- GARANTIA (AJUSTADA) -->
 <section class="py-12 md:py-16 bg-[#0D1117] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
     <div class="relative bg-gradient-to-br from-[#131A22] to-[#0A0F1A] rounded-2xl p-8 shadow-2xl border border-[#22d3ee]/40 text-center">
-      <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-500 to-pink-500 text-white px-4 py-1 rounded-full text-xs font-bold shadow-lg">RISCO ZERO</div>
       <i class="fas fa-shield-alt text-5xl text-[#22d3ee] mb-4 mt-2"></i>
-      <h2 class="guarantee-title-mobile text-2xl font-bold mb-2">Garantia incondicional – 7 dias para testar</h2>
-      <p class="text-gray-300 max-w-lg mx-auto guarantee-text-mobile">Participe dos dois dias completos, siga as orientações. Se sentir que não evoluiu ou não gostar, devolvemos <strong>100% do seu investimento</strong> em até 7 dias após a imersão. Sem perguntas, sem burocracia.</p>
-      <div class="mt-4 flex justify-center gap-3 text-xs text-gray-400"><span><i class="fas fa-check-circle text-green-500"></i> Risco zero</span><span><i class="fas fa-check-circle text-green-500"></i> Sem fidelidade</span><span><i class="fas fa-check-circle text-green-500"></i> Confiança garantida</span></div>
+      <h2 class="guarantee-title-mobile text-2xl font-bold mb-2">Garantia de satisfação</h2>
+      <p class="text-gray-300 max-w-lg mx-auto guarantee-text-mobile">Se você participar dos dois dias completos e, ainda assim, sentir que não evoluiu, <strong class="text-white">devolvemos 100% do seu investimento em até 7 dias após a imersão.</strong></p>
+      <p class="text-xs text-gray-500 mt-3">*Consulte condições. Reembolso válido apenas para solicitações feitas até 7 dias após o evento.</p>
     </div>
-  </div>
-</section>
-
-<!-- LOCAL, DATA E PREÇO + CTA -->
-<section id="garantir-vaga" class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
-  <div class="max-w-5xl mx-auto px-4 text-center">
-    <div class="bg-gradient-to-r from-[#001a15] to-[#001021] rounded-2xl p-8 border border-[#0fa84a]/40 shadow-2xl">
-      <i class="fas fa-map-pin text-3xl text-[#00D9FF] mb-2"></i>
-      <h2 class="text-2xl md:text-3xl font-bold">📍 Curitiba • 2 e 3 de maio de 2026</h2>
-      <p class="text-gray-300 mt-1">Das 8h às 18h (dois dias intensivos)</p>
-      <div class="my-6">
-        <div class="inline-block bg-black/50 px-6 py-3 rounded-xl">
-          <span class="text-gray-400 line-through text-sm">Lote promocional R$ 2.800 (ESGOTADO)</span><br>
-          <span class="text-gray-400 line-through text-sm">Lote 1 R$ 3.200 (ESGOTADO)</span><br>
-          <span class="text-3xl md:text-5xl font-bold price-grad">Lote 2: R$ 3.400</span>
-          <p class="text-green-400 text-sm">Último lote • Vagas limitadas</p>
-        </div>
-      </div>
-      <a href="https://www.instagram.com/formularevalida" target="_blank" class="inline-flex items-center gap-3 btn-secondary text-white font-bold text-lg px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-xl"><i class="fab fa-instagram"></i> GARANTIR MINHA VAGA NO 2º LOTE</a>
-      <p class="text-gray-400 text-sm mt-4">📩 Após clicar, envie um direct com a mensagem: <strong class="text-white">“QUERO ENTRAR NA IMERSÃO”</strong><br>Os 5 primeiros inscritos participam do sorteio exclusivo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- QUEM SOMOS (ESPECIALISTAS) -->
-<section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-4xl font-bold text-white">Quem <span class="text-[#0fa84a]">comanda</span> sua preparação</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-[#0fa84a] to-[#00D9FF] mx-auto mt-2 rounded-full"></div>
-    </div>
-    <div class="grid md:grid-cols-2 gap-10">
-      <div class="bg-[#131A22] p-6 rounded-xl border border-cyan-500/30"><i class="fas fa-user-md text-3xl text-[#00D9FF] mb-2"></i><h3 class="text-xl font-bold">Dra. Victória Haubert</h3><p class="text-gray-300">Criadora do Método DEP, mais de 4 anos de experiência em curso prático presencial para o Revalida. Especialista em preparação para a prova prática.</p></div>
-      <div class="bg-[#131A22] p-6 rounded-xl border border-pink-500/30"><i class="fas fa-chalkboard-user text-3xl text-[#FF0080] mb-2"></i><h3 class="text-xl font-bold">Dra. Jéssica Beck</h3><p class="text-gray-300">Médica revalidada, especialista em treinamento de alta performance para provas práticas. Foco em execução sob pressão e controle emocional.</p></div>
-    </div>
-    <div class="mt-8 text-center"><p class="text-gray-400">+ a equipe da <strong class="text-[#0fa84a]">Fórmula Revalida</strong> – 82% de aprovação na Mentoria Individual.</p></div>
-  </div>
-</section>
-
-<!-- INSTAGRAM -->
-<section class="py-12 md:py-16 bg-[#0A0F1A] scroll-reveal">
-  <div class="text-center">
-    <div class="flex justify-center items-center gap-3 mb-4"><i class="fab fa-instagram text-3xl text-[#E4405F]"></i><h2 class="text-2xl md:text-3xl font-bold text-white">Acompanhe no <span class="text-[#E4405F]">Instagram</span></h2></div>
-    <p class="text-gray-400 mb-6">Dicas, depoimentos e novidades da nossa comunidade</p>
-    <a href="https://www.instagram.com/formularevalida" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-6 py-3 rounded-full text-base font-semibold hover:shadow-lg transition"><i class="fab fa-instagram"></i> @formularevalida</a>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
+<section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-10">Dúvidas frequentes</h2>
     <div class="space-y-5">
-      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Eu preciso levar material?</summary><p class="text-gray-300 mt-2 faq-content-mobile">Nós fornecemos todo o material de apoio, incluindo checklists e documentos oficiais. Leve apenas jaleco, estetoscópio e vontade de aprender.</p></details>
-      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Onde será em Curitiba?</summary><p class="text-gray-300 mt-2 faq-content-mobile">Enviaremos o endereço completo por e-mail após a confirmação da inscrição (local central, de fácil acesso).</p></details>
-      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">E se eu não puder ir nos dois dias?</summary><p class="text-gray-300 mt-2 faq-content-mobile">A imersão é sequencial e intensiva. Para garantir o resultado, é necessário participar dos dois dias completos.</p></details>
-      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Como funciona o reembolso?</summary><p class="text-gray-300 mt-2 faq-content-mobile">Você tem 7 dias após o término da imersão para solicitar o reembolso integral, sem necessidade de justificativa.</p></details>
-      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">É para quem já passou na primeira fase?</summary><p class="text-gray-300 mt-2 faq-content-mobile">Sim, esta imersão é focada na prova prática (2ª fase) do Revalida.</p></details>
+      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Preciso levar material?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Nós fornecemos todo o material de apoio, incluindo os checklists e documentos oficiais. Leve apenas jaleco, estetoscópio e vontade de aprender.</p></details>
+      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Onde será em Curitiba?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Enviaremos o endereço completo por e-mail após a confirmação da inscrição (local central, de fácil acesso).</p></details>
+      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">E se eu não puder ir nos dois dias?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">A imersão é sequencial e intensiva. Para garantir o resultado, é necessário participar dos dois dias.</p></details>
+      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Como funciona o reembolso?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Você tem 7 dias após o término da imersão para solicitar o reembolso integral, desde que tenha participado integralmente. Sem burocracia.</p></details>
+      <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">É para quem já passou na primeira fase?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Sim, esta imersão é focada na prova prática (2ª fase) do Revalida.</p></details>
     </div>
   </div>
 </section>
 
+<!-- RECADO FINAL / CTA -->
+<section class="py-12 md:py-16 bg-[#0D1117] scroll-reveal">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">🔥 RECADO FINAL</h2>
+    <p class="text-gray-300 text-lg mb-6">Você não precisa treinar mais. Precisa <strong class="text-[#0fa84a]">treinar certo</strong>.</p>
+    <p class="text-gray-400 mb-8">Enquanto outros fazem dezenas de estações no automático, você vai estar treinando com pressão real, feedback estratégico e execução no padrão INEP.</p>
+    <p class="text-white text-xl font-bold mb-8">No dia da prova não vence quem estudou mais. Vence quem se preparou melhor.</p>
+    <a href="https://www.instagram.com/formularevalida" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition">
+      <i class="fab fa-instagram"></i> ENVIAR "QUERO ENTRAR NA IMERSÃO"
+    </a>
+    <p class="text-gray-500 text-sm mt-4">Curitiba • 2 e 3 de maio • 2º lote aberto • Vagas limitadas</p>
+  </div>
+</section>
+
 <footer class="bg-[#0A0F1A] border-t border-[#22d3ee]/30 py-6 text-center">
-  <p class="text-gray-400 text-sm">Estação 10X – Imersão presencial para a 2ª fase do Revalida. Garantia incondicional de 7 dias.</p>
-  <p class="text-xs text-gray-500 mt-2">© 2026 • Fórmula Revalida • Desenvolvido para médicos que buscam aprovação na prova prática.</p>
+  <p class="text-gray-400 text-sm">Estação 10X – Imersão presencial para a prova prática do Revalida. 7 dias de garantia.</p>
+  <p class="text-xs text-gray-500 mt-2">© 2026 • Fórmula Revalida • Desenvolvido para médicos formados no exterior.</p>
 </footer>
 
-<!-- MODAL DO VÍDEO -->
+<!-- MODAL DE VÍDEO -->
 <div id="videoModal" class="modal" onclick="closeVideoModalOnBackground(event)">
-  <div class="modal-content" onclick="event.stopPropagation()">
-    <span class="close-modal" onclick="closeVideoModal()">&times;</span>
-    <video id="modalVideo" width="100%" controls controlsList="nodownload" style="border-radius: 1rem;">
-      <source src="Na imersão prática, você se coloca no ambiente da prova do Revalida antes dela acontecer.Você en.mp4" type="video/mp4">
+  <div class="video-modal-content" onclick="event.stopPropagation()">
+    <span class="close-video" onclick="closeVideoModal()">&times;</span>
+    <video id="immersiveVideo" controls controlsList="nodownload" playsinline>
+      <source src="https://github.com/jessicaboth520-png/estacao10x/raw/main/Na%20imers%C3%A3o%20pr%C3%A1tica%2C%20voc%C3%AA%20se%20coloca%20no%20ambiente%20da%20prova%20do%20Revalida%20antes%20dela%20acontecer.Voc%C3%AA%20en.mp4" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
   </div>
 </div>
 
 <script>
-  // Contagem regressiva para 2 de maio de 2026 (data do evento)
-  function updateCountdown() {
-    const eventDate = new Date(2026, 4, 2); // 2 de maio de 2026 (mês 4 = maio)
-    const now = new Date();
-    const diff = eventDate - now;
-    const days = diff > 0 ? Math.floor(diff / 86400000) : 0;
-    document.getElementById('countdown-days').innerText = days;
+  // Contagem regressiva para 2 de maio de 2026
+  function updateCountdown() { 
+    const eventDate = new Date(2026, 4, 2); // Mês 4 = maio
+    const diff = eventDate - new Date(); 
+    const days = diff > 0 ? Math.floor(diff / 86400000) : 0; 
+    document.getElementById('countdown-days').innerText = days; 
   }
-  updateCountdown();
+  updateCountdown(); 
   setInterval(updateCountdown, 86400000);
 
-  // Cabeçalho sticky
-  const header = document.getElementById('stickyHeader');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 150) header.classList.add('visible');
-    else header.classList.remove('visible');
+  // Scroll suave CTA
+  document.getElementById('btn-comecar').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('inscricao').scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Scroll reveal
+  // Header sticky
+  const header = document.getElementById('stickyHeader');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      header.classList.add('visible');
+    } else {
+      header.classList.remove('visible');
+    }
+  });
+
+  // Reveal on scroll
   const revealElements = document.querySelectorAll('.scroll-reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('revealed');
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
     });
   }, { threshold: 0.1 });
   revealElements.forEach(el => observer.observe(el));
 
-  // Modal do vídeo
-  const videoModal = document.getElementById('videoModal');
-  const modalVideo = document.getElementById('modalVideo');
-
+  // Modal de vídeo
   function openVideoModal() {
-    videoModal.style.display = 'flex';
+    document.getElementById('videoModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    // Tenta carregar o vídeo (se o arquivo existir)
-    modalVideo.load();
   }
   function closeVideoModal() {
-    videoModal.style.display = 'none';
+    document.getElementById('videoModal').style.display = 'none';
     document.body.style.overflow = 'auto';
-    modalVideo.pause();
+    // Pausar vídeo
+    const video = document.getElementById('immersiveVideo');
+    if (video) video.pause();
   }
   function closeVideoModalOnBackground(e) {
-    if (e.target === videoModal) closeVideoModal();
+    if (e.target === document.getElementById('videoModal')) {
+      closeVideoModal();
+    }
   }
-  // Fechar com ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && videoModal.style.display === 'flex') closeVideoModal();
-  });
 </script>
 </body>
 </html>
