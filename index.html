@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Estação 10X | Imersão Revalida Prática | Curitiba 2-3 maio</title>
+  <title>Estação 10X | Imersão Prática Revalida | Curitiba 2-3 maio</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -19,7 +19,7 @@
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .animate-float { animation: float 3s ease-in-out infinite; }
     
-    /* Efeito de destaque com gradiente */
+    /* Efeito de destaque */
     .highlight-text {
       background: linear-gradient(135deg, #00D9FF, #FF0080);
       background-clip: text;
@@ -28,7 +28,7 @@
       display: inline-block;
     }
     
-    /* Gradientes e cores */
+    /* Gradientes e cores (mesmo da primeira landing) */
     .gradient-hero { background: linear-gradient(135deg, #001021 0%, #002b30 50%, #001a15 100%); }
     .btn-primary { background: linear-gradient(90deg, #0a5c2e, #15c659); color: white; transition: all 0.3s; }
     .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(21,198,89,0.4); }
@@ -37,7 +37,7 @@
     .price-grad { background: linear-gradient(135deg, #00D9FF, #FF0080, #0a5c2e); background-clip: text; -webkit-background-clip: text; color: transparent; font-weight: 900; }
     .countdown-bar { background: linear-gradient(90deg, #001021, #002b30); border-bottom: 1px solid rgba(0,217,255,0.2); }
     
-    /* Modal do vídeo */
+    /* Modal vídeo */
     .modal-video { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
     .modal-video.active { display: flex; }
     .modal-video-content { position: relative; max-width: 900px; width: 90%; background: #000; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 0 40px rgba(0,217,255,0.3); }
@@ -48,7 +48,7 @@
     .sticky-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(10, 15, 26, 0.95); backdrop-filter: blur(8px); transform: translateY(-100%); transition: transform 0.3s ease; border-bottom: 1px solid rgba(0,217,255,0.2); }
     .sticky-header.visible { transform: translateY(0); }
     .logo { height: 1.75rem; transition: height 0.3s; }
-    @media (min-width: 768px) { .logo { height: 2rem; } } /* Logo menor */
+    @media (min-width: 768px) { .logo { height: 2rem; } }
     
     /* Scroll reveal */
     .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
@@ -58,24 +58,27 @@
     .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
     .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.5); }
     
-    /* Thumbnail do vídeo */
-    .video-thumb { cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-    .video-thumb:hover { transform: scale(1.01); box-shadow: 0 10px 30px rgba(0,217,255,0.3); }
+    /* Thumb vídeo */
+    .video-thumb { cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; background: #0D1117; border-radius: 1rem; padding: 0.75rem; border: 1px solid rgba(0,217,255,0.3); }
+    .video-thumb:hover { transform: scale(1.01); box-shadow: 0 10px 30px rgba(0,217,255,0.2); }
     
-    /* Ajustes de fonte para mobile (seguindo padrões da primeira landing) */
+    /* Ajustes de fonte para mobile (reduzidos, alinhados com o padrão solicitado) */
     @media (max-width: 767px) {
-      .hero-title { font-size: 1.8rem !important; }
+      .hero-title { font-size: 1.8rem !important; line-height: 1.3 !important; }
       .hero-sub { font-size: 1rem !important; }
       .hero-description { font-size: 0.9rem !important; }
       .section-title { font-size: 1.6rem !important; }
-      .card-title { font-size: 1.2rem !important; }
-      .card-text { font-size: 0.8rem !important; }
+      .card-title { font-size: 1.1rem !important; }
+      .card-text { font-size: 0.75rem !important; }
       .price-large { font-size: 2rem !important; }
-      .bonus-text { font-size: 0.75rem !important; }
+      .bonus-text { font-size: 0.7rem !important; }
       .footer-text { font-size: 0.7rem !important; }
       .countdown-digits { font-size: 1rem !important; }
-      .btn-text { font-size: 0.9rem !important; }
+      .btn-text { font-size: 0.85rem !important; }
       .logo { height: 1.5rem; }
+      .diff-item-title { font-size: 0.9rem !important; }
+      .diff-item-desc { font-size: 0.8rem !important; }
+      .objetion-text { font-size: 0.85rem !important; }
     }
   </style>
 </head>
@@ -100,7 +103,7 @@
   </div>
 </div>
 
-<!-- HERO PRINCIPAL: TÍTULO + IMAGEM PRINCIPAL EM DESTAQUE -->
+<!-- HERO PRINCIPAL: TÍTULO + IMAGEM EM DESTAQUE -->
 <section class="relative gradient-hero text-white overflow-hidden pt-8 pb-12 md:pt-16 md:pb-20">
   <div class="absolute inset-0 bg-black/30"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,13 +126,13 @@
           <span><i class="fas fa-trophy text-yellow-400"></i> 82% aprovação</span>
         </div>
       </div>
-      <!-- IMAGEM PRINCIPAL EM DESTAQUE (PRIMEIRO ELEMENTO VISUAL IMPORTANTE) -->
+      <!-- IMAGEM PRINCIPAL (com o nome exato que você forneceu) -->
       <div class="relative animate-fadeInUp" style="animation-delay: 0.2s;">
         <div class="rounded-2xl overflow-hidden shadow-2xl border border-[#22d3ee]/40">
-          <img src="https://jessicaboth520-png.github.io/estacao10x/🔥Pela primeira vez em Curitiba-a união do ✅Fórmula Revalida (com 82% de aprovação na Mentoria I.jpg" alt="Estação 10X - Imersão Revalida" class="w-full object-cover" onerror="this.src='https://placehold.co/600x400/0a5c2e/white?text=Esta%C3%A7%C3%A3o+10X'">
+          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/🔥Pela primeira vez em Curitiba-a união do ✅Fórmula Revalida (com 82% de aprovação na Mentoria I.jpg" alt="Estação 10X - Imersão Revalida" class="w-full object-cover" onerror="this.src='https://placehold.co/600x400/0a5c2e/white?text=Esta%C3%A7%C3%A3o+10X'">
         </div>
-        <!-- Thumbnail do vídeo (clicável) abaixo da imagem principal, mas ainda em destaque -->
-        <div class="mt-4 video-thumb rounded-xl overflow-hidden border border-[#FF0080]/40 bg-[#0D1117] p-2 flex items-center gap-3 cursor-pointer" onclick="openVideoModal()">
+        <!-- Thumbnail do vídeo clicável -->
+        <div class="mt-4 video-thumb flex items-center gap-3 cursor-pointer" onclick="openVideoModal()">
           <div class="bg-black/50 rounded-full p-2"><i class="fas fa-play-circle text-2xl text-[#22d3ee]"></i></div>
           <div class="text-sm text-gray-300">▶ Clique para assistir ao vídeo da imersão</div>
         </div>
@@ -213,7 +216,7 @@
   </div>
 </section>
 
-<!-- O QUE VOCÊ RECEBE EM 2 DIAS -->
+<!-- O QUE VOCÊ RECEBE EM 2 DIAS (cards organizados) -->
 <section class="py-16 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-white mb-12">📦 O QUE VOCÊ RECEBE EM <span class="text-[#22d3ee]">2 DIAS</span></h2>
@@ -245,15 +248,27 @@
   </div>
 </section>
 
-<!-- POR QUE É DIFERENTE (tabela de objeções) -->
+<!-- POR QUE ESTA OFERTA É DIFERENTE? (seção de objeções) -->
 <section class="py-16 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-5xl mx-auto px-4">
     <h2 class="section-title text-3xl md:text-4xl font-bold text-center text-white mb-10">⚡ POR QUE ESTA OFERTA É DIFERENTE?</h2>
     <div class="space-y-4">
-      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#22d3ee]"><div class="w-full md:w-1/3 font-bold text-[#22d3ee]">“Já treinei sozinho e não sei se estou certo”</div><div class="text-gray-300">Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</div></div>
-      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#FF0080]"><div class="w-full md:w-1/3 font-bold text-[#FF0080]">“Medo de travar na frente do avaliador”</div><div class="text-gray-300">Você treina com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</div></div>
-      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#0fa84a]"><div class="w-full md:w-1/3 font-bold text-[#0fa84a]">“E se eu não conseguir aplicar no dia?”</div><div class="text-gray-300">Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</div></div>
-      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-yellow-500"><div class="w-full md:w-1/3 font-bold text-yellow-500">“E se eu não passar mesmo assim?”</div><div class="text-gray-300">Garantia incondicional de 7 dias – leia abaixo. Risco zero para você.</div></div>
+      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#22d3ee]">
+        <div class="w-full md:w-1/3 font-bold text-[#22d3ee] objetion-text">“Já treinei sozinho e não sei se estou certo”</div>
+        <div class="text-gray-300 objetion-text">Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</div>
+      </div>
+      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#FF0080]">
+        <div class="w-full md:w-1/3 font-bold text-[#FF0080] objetion-text">“Medo de travar na frente do avaliador”</div>
+        <div class="text-gray-300 objetion-text">Você treina com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</div>
+      </div>
+      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-[#0fa84a]">
+        <div class="w-full md:w-1/3 font-bold text-[#0fa84a] objetion-text">“E se eu não conseguir aplicar no dia?”</div>
+        <div class="text-gray-300 objetion-text">Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</div>
+      </div>
+      <div class="bg-[#131A22] rounded-xl p-5 flex flex-col md:flex-row gap-4 items-start md:items-center border-l-4 border-yellow-500">
+        <div class="w-full md:w-1/3 font-bold text-yellow-500 objetion-text">“E se eu não passar mesmo assim?”</div>
+        <div class="text-gray-300 objetion-text">Garantia incondicional de 7 dias – leia abaixo. Risco zero para você.</div>
+      </div>
     </div>
   </div>
 </section>
