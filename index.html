@@ -19,15 +19,16 @@
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .animate-float { animation: float 3s ease-in-out infinite; }
     
-    .highlight-text {
-      background: linear-gradient(135deg, #00D9FF, #FF0080);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 6px; /* espaço extra para a linha não sobrepor */
-    }
+   .highlight-text {
+    background: linear-gradient(135deg, #00D9FF, #FF0080);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    line-height: normal;
+}. 
     .highlight-text::after {
       content: '';
       position: absolute;
