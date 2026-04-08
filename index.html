@@ -26,12 +26,13 @@
       color: transparent;
       position: relative;
       display: inline-block;
-      padding-bottom: 6px; /* espaço extra para a linha não sobrepor */
+      padding-bottom: 5px;
+      line-height: normal;
     }
     .highlight-text::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: 2px;
       left: 0;
       width: 100%;
       height: 3px;
@@ -135,16 +136,13 @@
     .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
     
-    /* Ícones flutuantes sempre ativos */
     .benefit-icon { animation: float 3s ease-in-out infinite; }
     
-    /* Ajuste de espaçamento entre seções */
     section { padding-top: 3rem; padding-bottom: 3rem; }
     @media (min-width: 768px) {
       section { padding-top: 4rem; padding-bottom: 4rem; }
     }
     
-    /* ========== AJUSTES MOBILE ========== */
     @media (max-width: 767px) {
       .countdown-text { font-size: 12px !important; }
       .hero-title { font-size: 28px !important; line-height: 1.2 !important; }
@@ -176,15 +174,15 @@
       .faq-summary-mobile { font-size: 0.85rem !important; }
       .faq-content-mobile { font-size: 0.75rem !important; }
       .cta-button-text { font-size: 14px !important; }
-      .footer-note { font-size: 13px !important; }
+      .footer-note { font-size: 12px !important; }
+      .footer-copyright { font-size: 11px !important; }
       .quote-text-mobile { font-size: 14px !important; }
       
       .benefits-section { padding-top: 2rem !important; padding-bottom: 2.5rem !important; }
     }
     
-    /* Tamanhos consistentes no desktop */
     @media (min-width: 768px) {
-      .section-title-desktop { font-size: 2.25rem !important; } /* 36px */
+      .section-title-desktop { font-size: 2.25rem !important; }
       .objection-title-desktop { font-size: 2.25rem !important; }
     }
   </style>
@@ -260,7 +258,7 @@
   </div>
 </section>
 
-<!-- O SONHO & REALIDADE (SEM IMAGENS) -->
+<!-- O SONHO & REALIDADE -->
 <section class="py-8 md:py-12 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-10 items-start">
@@ -313,7 +311,7 @@
   </div>
 </section>
 
-<!-- O QUE VOCÊ RECEBE EM 2 DIAS (ícones float sempre ativos) -->
+<!-- O QUE VOCÊ RECEBE EM 2 DIAS -->
 <section class="benefits-section py-8 md:py-12 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8">
@@ -378,7 +376,7 @@
   </div>
 </section>
 
-<!-- POR QUE É DIFERENTE? (mesmo tamanho que Bônus no desktop) -->
+<!-- POR QUE É DIFERENTE? -->
 <section class="py-8 md:py-12 bg-[#0D1117] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="objection-title objection-title-desktop text-3xl md:text-4xl font-bold text-white text-center mb-10">Por que esta oferta é diferente?</h2>
@@ -476,8 +474,8 @@
 </section>
 
 <footer class="bg-[#0A0F1A] border-t border-[#22d3ee]/30 py-6 text-center">
-  <p class="text-gray-400 text-sm footer-note">Estação 10X – Imersão presencial para a 2ª fase prática do Revalida. 7 dias de garantia.</p>
-  <p class="text-xs text-gray-500 mt-2">© 2026 • Fórmula Revalida • Desenvolvido para médicos formados no exterior.</p>
+  <p class="text-gray-400 footer-note">Estação 10X – Imersão presencial para a 2ª fase prática do Revalida. 7 dias de garantia.</p>
+  <p class="text-gray-500 mt-2 footer-copyright">© 2026 • Fórmula Revalida • Desenvolvido para médicos formados no exterior.</p>
 </footer>
 
 <!-- MODAL DE VÍDEO -->
