@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Estação 10X | 2ª Fase Prática · Imersão Presencial Revalida</title>
+  <title>Estação 10X · Imersão Prática Revalida</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
@@ -13,14 +13,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Manrope', 'Inter', sans-serif; background: #0A0F1A; color: #e2e8f0; overflow-x: hidden; }
     
-    /* Animações */
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
     
     @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
     .animate-float { animation: float 3s ease-in-out infinite; }
     
-    /* Destaques de texto */
     .highlight-text {
       background: linear-gradient(135deg, #00D9FF, #FF0080);
       background-clip: text;
@@ -47,34 +45,22 @@
       display: inline-block;
     }
     
-    /* Gradientes e cores */
     .gradient-hero { background: linear-gradient(135deg, #001021 0%, #002b30 50%, #001a15 100%); }
     .btn-primary { background: linear-gradient(90deg, #0a5c2e, #15c659); color: white; transition: all 0.3s; }
     .btn-primary:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(21,198,89,0.4); }
     .btn-secondary { background: linear-gradient(90deg, #00D9FF, #FF0080); color: white; }
     .btn-secondary:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,217,255,0.5); }
-    .price-grad { 
-      background: linear-gradient(135deg, #00D9FF, #FF0080, #0a5c2e); 
-      background-clip: text; 
-      -webkit-background-clip: text; 
-      color: transparent; 
-      font-weight: 900;
-    }
+    .price-grad { background: linear-gradient(135deg, #00D9FF, #FF0080, #0a5c2e); background-clip: text; -webkit-background-clip: text; color: transparent; font-weight: 900; }
     .countdown-bar { background: linear-gradient(90deg, #001021, #002b30); border-bottom: none; }
     
     /* Modal */
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
     .modal-content { background: #0D1117; max-width: 500px; width: 90%; border-radius: 1.5rem; padding: 2rem; max-height: 80vh; overflow-y: auto; border: 1px solid #0fa84a; }
-    .modal-content h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: #0fa84a; }
-    .modal-content ul { list-style: disc; padding-left: 1.5rem; color: #cbd5e1; }
-    .modal-content li { margin-bottom: 0.5rem; }
-    .close-modal { float: right; font-size: 1.8rem; cursor: pointer; color: #0fa84a; transition: 0.2s; }
-    .close-modal:hover { color: #FF0080; }
     
-    /* Modal de vídeo */
+    /* Modal de vídeo (tamanho fixo pequeno) */
     .video-modal-content {
-      max-width: 50%;
-      width: auto;
+      max-width: 600px;
+      width: 90%;
       padding: 0.5rem;
       background: transparent;
       border: none;
@@ -102,11 +88,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       z-index: 1001;
     }
-    @media (max-width: 767px) {
-      .video-modal-content { max-width: 90%; }
-    }
     
-    /* Cabeçalho fixo */
     .sticky-header {
       position: fixed;
       top: 0;
@@ -122,7 +104,6 @@
     .logo { height: 1.75rem; transition: height 0.3s ease; }
     @media (min-width: 768px) { .logo { height: 2.5rem; } }
     
-    /* Cards com efeito hover */
     .hover-lift {
       transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
@@ -134,7 +115,6 @@
     
     .hero-image-wrapper { position: relative; display: inline-block; width: 100%; }
     .hero-image-wrapper img { width: 100%; height: auto; display: block; border-radius: 1rem; }
-    /* Sem overlay escuro */
     
     .hero-badge-shadow {
       position: absolute;
@@ -150,37 +130,43 @@
       font-size: 0.875rem;
       white-space: nowrap;
     }
-    @media (max-width: 640px) {
-      .hero-badge-shadow { font-size: 0.7rem; padding: 0.3rem 0.6rem; bottom: -0.3rem; right: -0.3rem; }
-    }
     
     .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
     
-    /* Efeito float nos ícones de benefícios */
-    .benefit-icon {
-      transition: transform 0.2s;
-    }
-    .benefit-card:hover .benefit-icon {
-      animation: float 2.5s ease-in-out infinite;
-    }
+    .benefit-icon { transition: transform 0.2s; }
+    .benefit-card:hover .benefit-icon { animation: float 2.5s ease-in-out infinite; }
     
-    /* Ajustes mobile refinados */
+    /* Ajustes mobile específicos conforme solicitado */
     @media (max-width: 767px) {
       .countdown-text { font-size: 0.7rem !important; }
       .hero-title { font-size: 1.6rem !important; line-height: 1.2 !important; }
       .hero-description { font-size: 13px !important; }
       .hero-list-item { font-size: 11px !important; }
+      .badge-top-mobile { font-size: 11px !important; }
+      
+      /* Sonho e Realidade */
+      .dream-title { font-size: 21px !important; }
+      .dream-text { font-size: 14px !important; }
+      .reality-title { font-size: 21px !important; }
+      .reality-text { font-size: 14px !important; }
+      
       .formula-title { font-size: 22px !important; }
       .section-title-mobile { font-size: 22px !important; }
       .guarantee-title-mobile { font-size: 20px !important; }
       .benefit-title { font-size: 14px !important; }
       .benefit-text { font-size: 12px !important; }
-      .bonus-card-title { font-size: 1.2rem !important; }
-      .bonus-card-text { font-size: 0.7rem !important; }
+      .bonus-sub { font-size: 14px !important; }
+      .bonus-card-title { font-size: 18px !important; }
+      .bonus-card-text { font-size: 14px !important; }
+      .bonus-total { font-size: 15px !important; }
+      .objection-title { font-size: 22px !important; }
+      .objection-text { font-size: 14px !important; }
       .plans-title-mobile { font-size: 1.8rem !important; }
       .faq-summary-mobile { font-size: 0.85rem !important; }
       .faq-content-mobile { font-size: 0.75rem !important; }
+      .cta-button-text { font-size: 14px !important; }
+      .footer-note { font-size: 13px !important; }
     }
   </style>
 </head>
@@ -198,7 +184,7 @@
   </div>
 </header>
 
-<!-- CONTAGEM REGRESSIVA -->
+<!-- CONTAGEM -->
 <div class="countdown-bar text-white py-2 text-center font-semibold relative z-30 shadow-md countdown-text">
   <div class="max-w-7xl mx-auto px-4 flex items-center justify-center gap-3 flex-wrap">
     <span>⏳ Imersão em Curitiba • Faltam <strong id="countdown-days" class="text-[#22d3ee] text-base mx-1">--</strong> dias</span>
@@ -208,16 +194,16 @@
 
 <!-- HERO SECTION -->
 <section class="relative gradient-hero text-white overflow-hidden pt-8 pb-12 md:pt-16 md:pb-20">
-  <div class="absolute inset-0 bg-black/10"></div> <!-- leve escurecimento para legibilidade, sem sombra na imagem -->
+  <div class="absolute inset-0 bg-black/10"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div class="space-y-5 animate-fadeInUp">
         <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 font-medium border border-[#22d3ee]/30">
-          <i class="fas fa-map-pin text-[#22d3ee] text-xs"></i>
-          <span>Curitiba • 2 e 3 de maio • 2º lote aberto</span>
+          <i class="fas fa-calendar-alt text-[#22d3ee] text-xs"></i>
+          <span class="badge-top-mobile">2 e 3 de maio • 2º lote aberto</span>
         </div>
         <h1 class="font-extrabold leading-tight hero-title text-3xl md:text-5xl lg:text-6xl">
-          ESTAÇÃO <span class="highlight-text">10X</span> <span class="text-2xl md:text-3xl font-semibold text-gray-300 block md:inline">| 2ª FASE PRÁTICA</span>
+          ESTAÇÃO <span class="highlight-text">10X</span>
         </h1>
         <p class="text-gray-300 hero-description text-base md:text-lg">
           A imersão que <strong class="text-white">vale por 10 meses de treino</strong>. 10x mais pressão na simulação. Segurança na aprovação.
@@ -240,8 +226,7 @@
       </div>
       <div class="relative animate-fadeInUp" style="animation-delay: 0.2s;">
         <div class="hero-image-wrapper">
-          <!-- NOVA IMAGEM PRINCIPAL (aqui.png) -->
-          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/aqui.png" alt="Estação 10X - Imersão Revalida 2ª fase" class="w-full rounded-2xl object-cover shadow-2xl" loading="lazy">
+          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/aqui.png" alt="Estação 10X - Imersão Revalida" class="w-full rounded-2xl object-cover shadow-2xl" loading="lazy">
           <div class="hero-badge-shadow">
             <i class="fas fa-fire mr-1"></i> 82% de aprovação na Mentoria
           </div>
@@ -256,65 +241,75 @@
   </div>
 </section>
 
-<!-- O SONHO & REALIDADE -->
+<!-- O SONHO & REALIDADE (com ícone verde e fontes ajustadas) -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-10 items-start">
       <!-- O SONHO -->
       <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-[#0fa84a] hover-lift">
-        <h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-star text-yellow-400"></i> O SONHO</h3>
-        <p class="text-gray-300 mb-3">Você quer abrir a porta da estação no dia da prova prática e sentir que <strong class="text-white">já esteve ali antes</strong>.</p>
-        <p class="text-gray-300 mb-3">Quer que o tempo cronometrado não te paralise. Que o avaliador não te intimide. Que sua mão não trema na prescrição, sua voz não falhe na anamnese.</p>
-        <p class="text-gray-300">Você quer <strong class="text-[#0fa84a]">controle, clareza e confiança</strong>. E acima de tudo, ouvir o “aprovado”. Esse destino começa em Curitiba, 2 e 3 de maio.</p>
+        <h3 class="dream-title text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-leaf text-[#0fa84a]"></i> O SONHO</h3>
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1">
+            <p class="text-gray-300 dream-text mb-3">Você quer abrir a porta da estação no dia da prova prática e sentir que <strong class="text-white">já esteve ali antes</strong>.</p>
+            <p class="text-gray-300 dream-text mb-3">Quer que o tempo cronometrado não te paralise. Que o avaliador não te intimide. Que sua mão não trema na prescrição, sua voz não falhe na anamnese.</p>
+            <p class="text-gray-300 dream-text">Você quer <strong class="text-[#0fa84a]">controle, clareza e confiança</strong>. E acima de tudo, ouvir o “aprovado”. Esse destino começa em Curitiba, 2 e 3 de maio.</p>
+          </div>
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Médico confiante" class="w-24 h-24 rounded-xl object-cover hidden md:block">
+        </div>
       </div>
       <!-- A REALIDADE -->
       <div class="bg-[#131A22] p-6 rounded-2xl border-l-4 border-red-500 hover-lift">
-        <h3 class="text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-exclamation-triangle text-red-500"></i> A REALIDADE</h3>
-        <p class="text-gray-300 mb-3">A maioria dos candidatos <strong class="text-red-400">erra não por falta de conteúdo</strong> – erra por não entender como o INEP pensa.</p>
-        <p class="text-gray-300 mb-3">Treinam estações no automático, sem pressão, sem cronômetro, sem ator. No dia da prova, travam.</p>
-        <p class="text-gray-300">Você não precisa treinar mais. Precisa <strong class="text-white">treinar certo</strong> – simular a prova como ela é.</p>
+        <h3 class="reality-title text-2xl font-bold mb-4 flex items-center gap-2"><i class="fas fa-exclamation-triangle text-red-500"></i> A REALIDADE</h3>
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1">
+            <p class="text-gray-300 reality-text mb-3">A maioria dos candidatos <strong class="text-red-400">erra não por falta de conteúdo</strong> – erra por não entender como o INEP pensa.</p>
+            <p class="text-gray-300 reality-text mb-3">Treinam estações no automático, sem pressão, sem cronômetro, sem ator. No dia da prova, travam.</p>
+            <p class="text-gray-300 reality-text">Você não precisa treinar mais. Precisa <strong class="text-white">treinar certo</strong> – simular a prova como ela é.</p>
+          </div>
+          <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Estudante estressado" class="w-24 h-24 rounded-xl object-cover hidden md:block">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- A OFERTA: ESTAÇÃO 10X -->
+<!-- A OFERTA: ESTAÇÃO 10X (copy reformulada) -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="font-bold text-white mb-4 formula-title text-3xl md:text-4xl lg:text-5xl">
       🎯 A OFERTA: <span class="text-[#0fa84a]">ESTAÇÃO 10X</span>
     </h2>
     <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12">
-      Pela primeira vez em Curitiba, a união dos métodos que mais aprovam na prática.
+      Pela primeira vez em Curitiba, a união do método que mais aprova na prática com a mentoria que transforma médicos estrangeiros em brasileiros.
     </p>
     <div class="grid md:grid-cols-3 gap-6 mb-12">
       <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
-        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <i class="fas fa-user-graduate text-3xl text-[#0fa84a] mb-3"></i>
         <h3 class="font-bold text-lg">Dra. Jéssica Beck</h3>
-        <p class="text-gray-400 text-sm">Fundadora do Fórmula Revalida, especialista em alta performance</p>
+        <p class="text-gray-400 text-sm">Fundadora do Fórmula Revalida e referência em preparação de alta performance para o Revalida.</p>
       </div>
       <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
-        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <i class="fas fa-trophy text-3xl text-[#0fa84a] mb-3"></i>
         <h3 class="font-bold text-lg">Fórmula Revalida</h3>
-        <p class="text-gray-400 text-sm">82% de aprovação na Mentoria Individual</p>
+        <p class="text-gray-400 text-sm">Metodologia validada com 82% de aprovação na Mentoria Individual.</p>
       </div>
       <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
-        <i class="fas fa-check-circle text-3xl text-[#0fa84a] mb-3"></i>
+        <i class="fas fa-chalkboard-user text-3xl text-[#0fa84a] mb-3"></i>
         <h3 class="font-bold text-lg">Dra. Victória Haubert</h3>
-        <p class="text-gray-400 text-sm">Criadora do Método DEP, +4 anos em curso prático presencial</p>
+        <p class="text-gray-400 text-sm">Criadora do Método DEP e mais de 4 anos de experiência em cursos práticos presenciais.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- O QUE VOCÊ RECEBE EM 2 DIAS (com float nos ícones) -->
+<!-- O QUE VOCÊ RECEBE EM 2 DIAS -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
       <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white">O que você recebe em 2 dias</h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Cards com ícones flutuantes no hover -->
+      <!-- Cards com ícones flutuantes -->
       <div class="benefit-card bg-[#131A22] p-5 rounded-xl flex gap-3 items-start hover-lift border border-gray-800">
         <i class="benefit-icon fas fa-user-check text-[#00D9FF] text-xl mt-1"></i>
         <div><strong class="text-white benefit-title">30 estações individuais</strong><p class="text-gray-400 benefit-text text-sm">cronometradas e correção individual</p></div>
@@ -340,15 +335,15 @@
         <div><strong class="text-white benefit-title">Correção individual estratégica</strong><p class="text-gray-400 benefit-text text-sm">item por item, checklist da banca</p></div>
       </div>
     </div>
-    <p class="text-center text-gray-300 mt-8">Você treina, recebe feedback, ajusta, repete. Até que a execução se torne automática.</p>
+    <p class="text-center text-gray-300 mt-8 text-sm md:text-base">Você treina, recebe feedback, ajusta, repete. Até que a execução se torne automática.</p>
   </div>
 </section>
 
-<!-- BÔNUS EXCLUSIVOS (sem controle emocional) -->
+<!-- BÔNUS EXCLUSIVOS -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-2"><i class="fas fa-gift text-[#FF0080] mr-2"></i> Bônus exclusivos</h2>
-    <p class="bonus-exclusive-text text-gray-400 mb-8">Só para os primeiros inscritos</p>
+    <p class="bonus-sub text-gray-400 mb-8">Só para os primeiros inscritos</p>
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
       <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 hover-lift">
         <i class="fas fa-list-check text-4xl text-yellow-500 mb-3"></i>
@@ -369,26 +364,26 @@
         <div class="bonus-price"><s class="text-gray-500">Valor imensurável</s> <strong class="text-green-400 text-xl ml-2">GRÁTIS</strong></div>
       </div>
     </div>
-    <p class="mt-8 text-xl font-bold bonus-total-mobile">Total em bônus: <span class="text-green-400">R$ 794</span> – você leva de graça!</p>
+    <p class="bonus-total mt-8 text-xl font-bold">Total em bônus: <span class="text-green-400">R$ 794</span> – você leva de graça!</p>
   </div>
 </section>
 
-<!-- POR QUE É DIFERENTE? (sem emoji) -->
+<!-- POR QUE É DIFERENTE? -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-white text-center mb-10">Por que esta oferta é diferente?</h2>
+    <h2 class="objection-title text-3xl font-bold text-white text-center mb-10">Por que esta oferta é diferente?</h2>
     <div class="space-y-4">
       <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800 hover-lift">
-        <p class="text-red-400 font-semibold">“Já treinei estações sozinho e não sei se estou fazendo certo”</p>
-        <p class="text-gray-300">→ Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</p>
+        <p class="text-red-400 font-semibold objection-text">“Já treinei estações sozinho e não sei se estou fazendo certo”</p>
+        <p class="text-gray-300 objection-text">→ Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</p>
       </div>
       <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800 hover-lift">
-        <p class="text-red-400 font-semibold">“Tenho medo de travar na frente do avaliador”</p>
-        <p class="text-gray-300">→ Você treina com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</p>
+        <p class="text-red-400 font-semibold objection-text">“Tenho medo de travar na frente do avaliador”</p>
+        <p class="text-gray-300 objection-text">→ Você treina com atores, sob pressão de tempo, até perder o medo. O psicológico é treinado tanto quanto o técnico.</p>
       </div>
       <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800 hover-lift">
-        <p class="text-red-400 font-semibold">“Não sei se vou conseguir aplicar tudo no dia”</p>
-        <p class="text-gray-300">→ Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</p>
+        <p class="text-red-400 font-semibold objection-text">“Não sei se vou conseguir aplicar tudo no dia”</p>
+        <p class="text-gray-300 objection-text">→ Você simula o dia da prova antes dele acontecer. No dia, você já fez aquilo 10 vezes.</p>
       </div>
     </div>
   </div>
@@ -416,7 +411,7 @@
         <h3 class="text-2xl font-bold mt-4">Lote 2</h3>
         <div class="my-4"><span class="text-5xl font-bold price-grad">R$ 3.400</span></div>
         <p class="text-green-400 text-sm mb-3">Vagas limitadas</p>
-        <a href="https://www.instagram.com/formularevalida" target="_blank" class="btn-secondary text-white py-3 rounded-xl font-bold transition mb-4 shadow-md text-center w-full block">Quero garantir minha vaga</a>
+        <a href="#" id="cta-whatsapp" class="btn-secondary text-white py-3 rounded-xl font-bold transition mb-4 shadow-md text-center w-full block cta-button-text">Quero garantir minha vaga</a>
         <p class="text-xs text-gray-400">ou envie "QUERO ENTRAR NA IMERSÃO" no direct</p>
       </div>
     </div>
@@ -440,7 +435,7 @@
   </div>
 </section>
 
-<!-- RECADO FINAL (reformulado, sem emoji) -->
+<!-- RECADO FINAL -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4 text-center">
     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Recado final</h2>
@@ -449,7 +444,7 @@
       <p class="text-white text-base md:text-lg italic">“Enquanto outros fazem dezenas de estações no automático, você vai estar treinando com pressão real, feedback estratégico e execução no padrão INEP.”</p>
     </div>
     <p class="text-white text-xl font-bold mb-8">No dia da prova não vence quem estudou mais. <br> Vence quem se preparou melhor.</p>
-    <a href="https://www.instagram.com/formularevalida" target="_blank" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition">
+    <a href="#" id="final-cta" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#E4405F] to-[#833AB4] text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl transition cta-button-text">
       <i class="fab fa-instagram"></i> ENVIAR "QUERO ENTRAR NA IMERSÃO"
     </a>
     <p class="text-gray-500 text-sm mt-6">Curitiba • 2 e 3 de maio • 2º lote aberto • Vagas limitadas</p>
@@ -471,11 +466,11 @@
 </section>
 
 <footer class="bg-[#0A0F1A] border-t border-[#22d3ee]/30 py-6 text-center">
-  <p class="text-gray-400 text-sm">Estação 10X – Imersão presencial para a 2ª fase prática do Revalida. 7 dias de garantia.</p>
+  <p class="text-gray-400 text-sm footer-note">Estação 10X – Imersão presencial para a 2ª fase prática do Revalida. 7 dias de garantia.</p>
   <p class="text-xs text-gray-500 mt-2">© 2026 • Fórmula Revalida • Desenvolvido para médicos formados no exterior.</p>
 </footer>
 
-<!-- MODAL DE VÍDEO -->
+<!-- MODAL DE VÍDEO (tamanho reduzido) -->
 <div id="videoModal" class="modal" onclick="closeVideoModalOnBackground(event)">
   <div class="video-modal-content" onclick="event.stopPropagation()">
     <span class="close-video" onclick="closeVideoModal()">&times;</span>
@@ -487,9 +482,9 @@
 </div>
 
 <script>
-  // Contagem regressiva para 2 de maio de 2026
+  // Contagem regressiva
   function updateCountdown() { 
-    const eventDate = new Date(2026, 4, 2); // Mês 4 = maio
+    const eventDate = new Date(2026, 4, 2); 
     const diff = eventDate - new Date(); 
     const days = diff > 0 ? Math.floor(diff / 86400000) : 0; 
     document.getElementById('countdown-days').innerText = days; 
@@ -497,11 +492,13 @@
   updateCountdown(); 
   setInterval(updateCountdown, 86400000);
 
+  // Scroll suave CTA
   document.getElementById('btn-comecar').addEventListener('click', function(e) {
     e.preventDefault();
     document.getElementById('inscricao').scrollIntoView({ behavior: 'smooth' });
   });
 
+  // Header sticky
   const header = document.getElementById('stickyHeader');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 150) {
@@ -511,6 +508,7 @@
     }
   });
 
+  // Reveal on scroll
   const revealElements = document.querySelectorAll('.scroll-reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -521,6 +519,7 @@
   }, { threshold: 0.1 });
   revealElements.forEach(el => observer.observe(el));
 
+  // Modal de vídeo
   function openVideoModal() {
     document.getElementById('videoModal').style.display = 'flex';
     document.body.style.overflow = 'hidden';
@@ -536,6 +535,20 @@
       closeVideoModal();
     }
   }
+
+  // Redirecionamento WhatsApp com mensagem personalizada
+  const whatsappNumber = "5555996740468"; // mesmo número do original
+  const mensagem = "Olá! Quero participar da imersão Estação 10X e me preparar com o método que mais aprova no Revalida. Pode me passar os detalhes da inscrição?";
+  const whatsappLink = `https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${encodeURIComponent(mensagem)}&type=phone_number&app_absent=0`;
+
+  document.getElementById('cta-whatsapp').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(whatsappLink, '_blank');
+  });
+  document.getElementById('final-cta').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(whatsappLink, '_blank');
+  });
 </script>
 </body>
 </html>
