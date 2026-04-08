@@ -26,11 +26,12 @@
       color: transparent;
       position: relative;
       display: inline-block;
+      line-height: 1.4; /* mais espaço para linha não sobrepor */
     }
     .highlight-text::after {
       content: '';
       position: absolute;
-      bottom: -5px;
+      bottom: -8px; /* desce um pouco mais a linha */
       left: 0;
       width: 100%;
       height: 3px;
@@ -134,13 +135,23 @@
     .scroll-reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .scroll-reveal.revealed { opacity: 1; transform: translateY(0); }
     
-    .benefit-icon { transition: transform 0.2s; }
-    .benefit-card:hover .benefit-icon { animation: float 2.5s ease-in-out infinite; }
+    /* Ícones sempre flutuando (sem hover) */
+    .benefit-icon {
+      animation: float 3s ease-in-out infinite;
+    }
     
-    /* ========== AJUSTES MOBILE ESPECÍFICOS ========== */
+    /* Reduzir espaçamento vertical dos títulos de seção */
+    .section-title-spacing {
+      margin-bottom: 0.5rem !important;
+    }
+    .section-subtitle-spacing {
+      margin-bottom: 1.5rem !important;
+    }
+    
+    /* Ajustes mobile refinados */
     @media (max-width: 767px) {
       .countdown-text { font-size: 12px !important; }
-      .hero-title { font-size: 28px !important; line-height: 1.2 !important; }
+      .hero-title { font-size: 28px !important; line-height: 1.3 !important; }
       .hero-description { font-size: 14px !important; }
       .hero-list-item { font-size: 12px !important; }
       .badge-top-mobile { font-size: 11px !important; }
@@ -150,8 +161,8 @@
       .reality-title { font-size: 21px !important; }
       .reality-text { font-size: 14px !important; }
       
-      .formula-title { font-size: 22px !important; }
-      .section-title-mobile { font-size: 22px !important; }
+      .formula-title { font-size: 22px !important; margin-bottom: 0.25rem !important; }
+      .section-title-mobile { font-size: 22px !important; margin-bottom: 0.25rem !important; }
       .guarantee-title-mobile { font-size: 20px !important; }
       .guarantee-text-mobile { font-size: 14px !important; }
       .guarantee-badges-mobile { font-size: 11px !important; }
@@ -164,16 +175,24 @@
       .bonus-total { font-size: 15px !important; }
       .objection-title { font-size: 22px !important; }
       .objection-text { font-size: 14px !important; }
-      .plans-title-mobile { font-size: 1.8rem !important; }
-      .faq-title-mobile { font-size: 24px !important; }
+      .plans-title-mobile { font-size: 1.8rem !important; margin-bottom: 0.25rem !important; }
+      .faq-title-mobile { font-size: 24px !important; margin-bottom: 1rem !important; }
       .faq-summary-mobile { font-size: 0.85rem !important; }
       .faq-content-mobile { font-size: 0.75rem !important; }
       .cta-button-text { font-size: 14px !important; }
       .footer-note { font-size: 13px !important; }
       .quote-text-mobile { font-size: 14px !important; }
       
-      /* Reduzir padding-top da seção "O que você recebe" */
       .benefits-section { padding-top: 2rem !important; padding-bottom: 3rem !important; }
+      
+      /* Redução geral de margens dos títulos */
+      h2, .section-title-mobile, .formula-title, .plans-title-mobile {
+        margin-bottom: 0.5rem !important;
+      }
+      .section-subtitle {
+        margin-top: 0 !important;
+        margin-bottom: 1.5rem !important;
+      }
     }
   </style>
 </head>
@@ -281,13 +300,13 @@
 <!-- A OFERTA: ESTAÇÃO 10X -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="font-bold text-white mb-4 formula-title text-3xl md:text-4xl lg:text-5xl">
+    <h2 class="font-bold text-white formula-title text-3xl md:text-4xl lg:text-5xl section-title-spacing">
       🎯 A OFERTA: <span class="text-[#0fa84a]">ESTAÇÃO 10X</span>
     </h2>
-    <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12">
+    <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto section-subtitle-spacing">
       Pela primeira vez em Curitiba, a união do método que mais aprova na prática com a mentoria que transforma médicos estrangeiros em brasileiros.
     </p>
-    <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-[#131A22] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
         <i class="fas fa-user-graduate text-3xl text-[#0fa84a] mb-3"></i>
         <h3 class="font-bold text-lg">Dra. Jéssica Beck</h3>
@@ -307,11 +326,11 @@
   </div>
 </section>
 
-<!-- O QUE VOCÊ RECEBE EM 2 DIAS (padding reduzido no mobile) -->
+<!-- O QUE VOCÊ RECEBE EM 2 DIAS (padding reduzido e ícones sempre flutuando) -->
 <section class="benefits-section py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-10">
-      <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white">O que você recebe em 2 dias</h2>
+    <div class="text-center mb-8">
+      <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white section-title-spacing">O que você recebe em 2 dias</h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="benefit-card bg-[#131A22] p-5 rounded-xl flex gap-3 items-start hover-lift border border-gray-800">
@@ -346,8 +365,8 @@
 <!-- BÔNUS EXCLUSIVOS -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-2"><i class="fas fa-gift text-[#FF0080] mr-2"></i> Bônus exclusivos</h2>
-    <p class="bonus-sub text-gray-400 mb-8">Só para os primeiros inscritos</p>
+    <h2 class="section-title-mobile text-3xl md:text-4xl font-bold text-white mb-2 section-title-spacing"><i class="fas fa-gift text-[#FF0080] mr-2"></i> Bônus exclusivos</h2>
+    <p class="bonus-sub text-gray-400 section-subtitle-spacing">Só para os primeiros inscritos</p>
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
       <div class="bg-[#131A22] rounded-2xl p-6 shadow-xl border-t-4 border-yellow-500 hover-lift">
         <i class="fas fa-list-check text-4xl text-yellow-500 mb-3"></i>
@@ -375,8 +394,8 @@
 <!-- POR QUE É DIFERENTE? -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="objection-title text-3xl font-bold text-white text-center mb-10">Por que esta oferta é diferente?</h2>
-    <div class="space-y-4">
+    <h2 class="objection-title text-3xl font-bold text-white text-center section-title-spacing">Por que esta oferta é diferente?</h2>
+    <div class="space-y-4 mt-6">
       <div class="bg-[#131A22] rounded-xl p-5 border border-gray-800 hover-lift">
         <p class="text-red-400 font-semibold objection-text">“Já treinei estações sozinho e não sei se estou fazendo certo”</p>
         <p class="text-gray-300 objection-text">→ Aqui você é corrigido item por item, com o checklist da banca. Você sabe exatamente onde errou e como melhorar.</p>
@@ -396,8 +415,8 @@
 <!-- PLANOS / INSCRIÇÃO -->
 <section id="inscricao" class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="font-bold text-white mb-2 text-3xl md:text-4xl plans-title-mobile">Garanta sua vaga no <span class="highlight-text-no-line">2º LOTE</span></h2>
-    <p class="text-gray-400 max-w-2xl mx-auto mb-4 plans-subtitle-mobile">Últimas vagas disponíveis. Quando acabar, acabou.</p>
+    <h2 class="font-bold text-white text-3xl md:text-4xl plans-title-mobile section-title-spacing">Garanta sua vaga no <span class="highlight-text-no-line">2º LOTE</span></h2>
+    <p class="text-gray-400 max-w-2xl mx-auto section-subtitle-spacing">Últimas vagas disponíveis. Quando acabar, acabou.</p>
     
     <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-8">
       <div class="bg-[#131A22] rounded-2xl p-6 border border-gray-700 opacity-60">
@@ -442,7 +461,7 @@
 <!-- RECADO FINAL -->
 <section class="py-12 md:py-20 bg-[#0A0F1A] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Recado final</h2>
+    <h2 class="text-3xl md:text-4xl font-bold text-white section-title-spacing">Recado final</h2>
     <p class="text-gray-300 text-lg md:text-xl mb-6">Você não precisa treinar mais. <br class="hidden md:block">Precisa <strong class="text-[#0fa84a]">treinar certo</strong>.</p>
     <div class="bg-[#131A22] p-6 rounded-2xl inline-block mx-auto border border-[#0fa84a]/30 mb-8">
       <p class="text-white text-base md:text-lg italic quote-text-mobile">“Enquanto outros fazem dezenas de estações no automático, você vai estar treinando com pressão real, feedback estratégico e execução no padrão INEP.”</p>
@@ -458,8 +477,8 @@
 <!-- FAQ -->
 <section class="py-12 md:py-20 bg-[#0D1117] scroll-reveal">
   <div class="max-w-4xl mx-auto px-4">
-    <h2 class="faq-title-mobile text-3xl md:text-4xl font-bold text-center text-white mb-10">Dúvidas frequentes</h2>
-    <div class="space-y-5">
+    <h2 class="faq-title-mobile text-3xl md:text-4xl font-bold text-center text-white section-title-spacing">Dúvidas frequentes</h2>
+    <div class="space-y-5 mt-6">
       <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Preciso levar material?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Nós fornecemos todo o material de apoio, incluindo os checklists e documentos oficiais. Leve apenas jaleco, estetoscópio e vontade de aprender.</p></details>
       <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">Onde será em Curitiba?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">Enviaremos o endereço completo por e-mail após a confirmação da inscrição (local central, de fácil acesso).</p></details>
       <details class="bg-[#131A22] rounded-xl p-5 border border-gray-800"><summary class="font-bold text-white cursor-pointer faq-summary-mobile">E se eu não puder ir nos dois dias?</summary><p class="text-gray-300 mt-2 leading-relaxed faq-content-mobile">A imersão é sequencial e intensiva. Para garantir o resultado, é necessário participar dos dois dias.</p></details>
