@@ -150,12 +150,13 @@
     
     /* Ajustes para imagens circulares dos cards */
     .mentor-img {
-      width: 48px;
-      height: 48px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      margin-bottom: 0.75rem;
+      margin: 0 auto 1rem auto;
+      border: 2px solid #0fa84a;
     }
     
     @media (max-width: 767px) {
@@ -236,7 +237,7 @@
         </div>
         <h1 class="font-extrabold leading-tight hero-title text-3xl md:text-5xl lg:text-6xl">
           <!-- Substituído por imagem -->
-          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_18-45-06.png" alt="Estação 10X" class="w-full max-w-[400px] h-auto inline-block" style="max-width: 100%; height: auto;">
+          <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_18-45-06.png" alt="Estação 10X" class="w-full max-w-[400px] h-auto inline-block" style="max-width: 100%; height: auto;" onerror="this.outerHTML='<span class=\'highlight-text\'>ESTAÇÃO 10X</span>'">
           <span class="text-white font-bold">| 2ª FASE REVALIDA</span>
         </h1>
         <p class="text-gray-300 hero-description text-base md:text-lg">
@@ -304,7 +305,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <!-- Substituído por imagem -->
     <div class="mb-6 flex justify-center">
-      <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_18-45-06.png" alt="Estação 10X" class="max-w-full h-auto" style="max-height: 100px;">
+      <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_18-45-06.png" alt="Estação 10X" class="max-w-full h-auto" style="max-height: 100px;" onerror="this.outerHTML='<h2 class=\'text-4xl font-bold\'><span class=\'highlight-text\'>ESTAÇÃO 10X</span></h2>'">
     </div>
     <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto mb-8 md:mb-12">
       Pela primeira vez em Curitiba, a união do Método DEP baseado em mais de 2000 estações práticas treinadas presencialmente, com o Fórmula Revalida - a Mentoria individual que mais aprova no Revalida.
@@ -312,13 +313,15 @@
     <div class="grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
       <!-- Card Dra. Jéssica Beck -->
       <div class="bg-[#0a0f0a] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
-        <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_19-00-54.png" alt="Dra. Jéssica Beck" class="mentor-img mx-auto">
+        <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Captura_de_tela_de_2026-04-12_19-00-54.png" alt="Dra. Jéssica Beck" class="mentor-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display: none; width: 80px; height: 80px; border-radius: 50%; background: #0fa84a; margin: 0 auto 1rem; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">JB</div>
         <h3 class="font-bold text-lg">Dra. Jéssica Beck</h3>
         <p class="text-gray-400 text-sm">Fundadora do Fórmula Revalida, centenas de alunos já passaram pelo seu método e hoje é referência em preparação de alta performance em tempo recorde para o Revalida, conhecida pelo seu alto índice de aprovação.</p>
       </div>
       <!-- Card Dra. Victória Haubert -->
       <div class="bg-[#0a0f0a] p-6 rounded-2xl border border-[#0fa84a]/30 hover-lift">
-        <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Frame-5.webp" alt="Dra. Victória Haubert" class="mentor-img mx-auto">
+        <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/Frame-5.webp" alt="Dra. Victória Haubert" class="mentor-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div style="display: none; width: 80px; height: 80px; border-radius: 50%; background: #0fa84a; margin: 0 auto 1rem; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">VH</div>
         <h3 class="font-bold text-lg">Dra. Victória Haubert</h3>
         <p class="text-gray-400 text-sm">Criadora do Método DEP, conhecida por seu treinamento estratégico para aprovar seus alunos na segunda fase, conta mais de 4 anos de experiência em cursos práticos presenciais e já observou mais de 2000 estações práticas presencialmente.</p>
       </div>
@@ -442,7 +445,7 @@
     <div class="mt-8 flex flex-col items-center">
       <p class="text-sm text-gray-400 mb-4">📍 Curitiba • 2 e 3 de maio • Das 8:30 às 19hrs. Parada para o almoço. Coffe Break Incluso nos 2 dias.</p>
       <!-- Imagem coffee break -->
-      <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/coffee-break-corporativo.webp" alt="Coffee Break" class="rounded-xl max-w-full md:max-w-md h-auto shadow-lg">
+      <img src="https://raw.githubusercontent.com/jessicaboth520-png/estacao10x/main/coffee-break-corporativo.webp" alt="Coffee Break" class="rounded-xl max-w-full md:max-w-md h-auto shadow-lg" onerror="this.style.display='none'">
     </div>
   </div>
 </section>
